@@ -16,6 +16,9 @@ function get_bloginfo_data() {
         'description' => get_bloginfo('description'),
         'url' => get_bloginfo('url'),
         'wp_version' => get_bloginfo('version'),
+        'menus' => [
+            'primary' => wp_get_nav_menu_items(3)
+        ]
     ];
 }
 
@@ -35,3 +38,11 @@ function theme_setup(){
 }
 
 add_action('after_setup_theme', 'theme_setup');
+
+function theme_menus() {
+    register_nav_menus([
+        'primary-menu' => __( 'Primary Menu', 'ofernandoavila-theme' )
+    ]);
+}
+
+add_action( 'init', 'theme_menus' );
