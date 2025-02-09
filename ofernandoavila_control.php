@@ -10,6 +10,14 @@ License: GPLv2 or later
 Text Domain: ofernandoavila
 */
 
+function get_menu_items(string $menu)
+{
+        $locations = get_nav_menu_locations();
+        $menu = $locations[$menu];
+
+        return wp_get_nav_menu_items($menu);
+}
+
 function get_bloginfo_data() {
     return [
         'title' => get_bloginfo('title'),
@@ -34,4 +42,16 @@ function theme_setup(){
     add_theme_support('post-thumbnails');
 }
 
+<<<<<<< ours
 add_action('after_setup_theme', 'theme_setup');
+=======
+add_action('after_setup_theme', 'theme_setup');
+
+function theme_menus() {
+    register_nav_menus([
+        'primary-menu' => __( 'Primary Menu', 'ofernandoavila-theme' )
+    ]);
+}
+
+add_action( 'init', 'theme_menus' );
+>>>>>>> theirs

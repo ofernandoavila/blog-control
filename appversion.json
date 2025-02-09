@@ -1,4 +1,9 @@
 {
     "name": "blog-control",
+<<<<<<< ours
     "version": "0.0.2"
 }
+=======
+    "version": "0.0.4"
+}
+>>>>>>> theirs
